@@ -1,0 +1,119 @@
+$feature-flags: (
+	ui-shell: true,
+	grid-columns-16: true,
+	enable-css-custom-properties: true
+);
+
+$css--font-face: true;
+$css--helpers: true;
+$css--body: true;
+$css--use-layer: true;
+$css--reset: true;
+$css--default-type: true;
+$css--plex: true;
+
+@import "carbon-components/scss/globals/scss/vendor/@carbon/themes/scss";
+@import "carbon-components/scss/globals/scss/component-tokens";
+@import "carbon-components/src/components/tag/tag";
+@import "carbon-components/src/components/notification/inline-notification";
+@import "carbon-components/src/components/notification/toast-notification";
+
+// # Define a color palette
+// $blue-01: #0a1b3c;
+// $blue-02: #0c2148;
+// $blue-03: #0d2755;
+// $blue-04: #0e2d62;
+// $blue-05: #10336f;
+// $blue-06: #113a7c;
+// $blue-07: #12408a;
+// $blue-08: #144798;
+// $blue-09: #164da6;
+// $blue-10: #1854b4;
+// $blue-11: #1a5bc3;
+// $blue-12: #1c62d2;
+// $blue-13: #1f69e1;
+// $blue-14: #2270f0;
+// $blue-15: #2677ff;
+
+// # Override any carbon variables you would like
+$carbon--theme: map-merge(
+	$carbon--theme--g10,
+	(
+		interactive01: "#6183ae",
+        interactive02: "#9b6f93",
+        interactive03: "#6183ae",
+        interactive04: "#6183ae",
+        uiBackground: "#e5e9f0",
+        ui01: "#eceff4",
+        ui02: "#e5e9f0",
+        ui03: "#c4cdde",
+        ui04: "#4c566a",
+        ui05: "#2e3440",
+        text01: "#2e3440",
+        text02: "#3b4252",
+        text03: "#81a1c1",
+        text04: "#eceff4",
+        text05: "#2e3440",
+        icon01: "#2e3440",
+        icon02: "#4c566a",
+        icon03: "#eceff4",
+        link01: "#81a1c1",
+        inverseLink: "#88c0d0",
+        field01: "#eceff4",
+        field02: "#e5e9f0",
+        inverse01: "#eceff4",
+        inverse02: "#8fbcbb",
+        support01: "#bf616a",
+        support02: "#a3be8c",
+        support03: "#ebcb8b",
+        support04: "#5e81ac",
+        inverseSupport01: "#d08770",
+        inverseSupport02: "#a3be8c",
+        inverseSupport03: "#ebcb8b",
+        inverseSupport04: "#81a1c1",
+        overlay01: "rgba(22, 22, 22, 0.5)",
+        focus: "#b48ead",
+        hoverPrimary: "#5376a2",
+        activePrimary: "#5f5dc0",
+        hoverPrimaryText: "#6183ae",
+        hoverSecondary: "#a781a0",
+        activeSecondary: "#81a1c1",
+        hoverTertiary: "#81a1c1",
+        activeTertiary: "#5f5dc0",
+        hoverUI: "#e5e9f0",
+        activeUI: "d8dee9",
+        selectedUI: "d8dee9",
+        hoverSelectedUI: "#a3b1cc",
+        hoverDanger: "#b74e58",
+        activeDanger: "#d65c68",
+        hoverRow: "#e5e9f0",
+        visitedLink: "#8fbcbb",
+        disabled01: "#eceff4",
+        disabled02: "#a7b4cd",
+        disabled03: "#4c566a",
+        highlight: "#bedce4",
+        skeleton01: "#e5e9f0",
+        skeleton02: "#c4cdde",
+        brand01: interactive01,
+        brand02: interactive02,
+        brand03: interactive03,
+        active01: activeUI,
+        hoverField: hoverUI
+	)
+);
+@include carbon--theme();
+
+@import "carbon-components/scss/globals/scss/_css--reset";
+@import "carbon-components/scss/globals/scss/_css--font-face";
+@import "carbon-components/scss/globals/scss/_css--helpers";
+@import "carbon-components/scss/globals/scss/_css--body";
+@import "carbon-components/scss/globals/grid/grid";
+
+// Import all component styles
+@import "carbon-components/scss/globals/scss/styles";
+
+:root {
+	@include carbon--theme($carbon--theme, true) {
+		@include emit-component-tokens($tag-colors);
+	}
+}
